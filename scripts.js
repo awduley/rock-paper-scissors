@@ -1,6 +1,3 @@
-let computerScore = 0;
-let humanScore = 0;
-
 function getComputerChoice() {
   let randNum = Math.floor(Math.random () * 3) + 1;
   if(randNum === 1) {
@@ -17,7 +14,15 @@ function getHumanChoice() {
   return ourChoice.toLowerCase();
 }
 
-function playRound(computerChoice, humanChoice) {
+function playGame() {
+
+  // Variables to keep track of the scores
+  let computerScore = 0;
+  let humanScore = 0;
+
+  // Function to play one round of rock, paper, scissors
+  function playRound(computerChoice, humanChoice) {
+
   if (computerChoice === "Rock" && humanChoice === "scissors") {
     console.log("You lose! " + computerChoice + " beats " + humanChoice);
     computerScore ++;
@@ -27,16 +32,26 @@ function playRound(computerChoice, humanChoice) {
   } else if (computerChoice === "Scissors" && humanChoice === "paper") {
     console.log("You lose! " + computerChoice + " beats " + humanChoice)
     computerScore ++;
-  } else if (computerChoice === humanChoice) {
+  } else if (computerChoice.toLowerCase() === humanChoice) {
     console.log("It's a tie! You both chose " + computerChoice)
   } else {
     console.log("You win! " + humanChoice + " beats " + computerChoice);
     humanScore ++;
   }
+  }
+
+  // For loop to call the playRound function five times
+  for(let i = 1; i <= 5; i ++) {
+    // Variables to get random selections each time the playRound function is called
+    const computerSelection = getComputerChoice();
+    const humanSelection = getHumanChoice();
+    playRound(computerSelection, humanSelection);
+  }
+  if (computerScore > humanScore) {
+    console.log(`Sorry, you loose! The computer finished with ${computerScore}, while you only had ${humanScore}.`)
+  } else {
+    console.log(`Congratulations, you won! You finished with ${humanScore}, while the computer only had ${computerScore}.`)
+  }
 }
 
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
-
-playRound(computerSelection, humanSelection);
-
+playGame();
