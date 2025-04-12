@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.play-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  margin-top: 200px;
+}
+
+.buttons .btn {
+  font-size: 24px;
+  width: 140px;
+  padding: 10px 0 10px 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.rock {
+  background: darkslategray;
+  color: #fff;
+}
+
+.paper {
+  background: #fff;
+}
+
+.scissors {
+  background: orange;
+}
+
+.scores {
+  display: flex;
+  border: 2px solid black;
+  padding: 10px 20px;
+  margin: 40px auto;
+}
+
+.score {
+  margin: 10px 20px;
+  font-size: 24px;
+}
+
+.winner {
+  font-size: 24px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
